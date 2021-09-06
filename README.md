@@ -1,6 +1,6 @@
 # Imbalanced_Datasets_Classification_Problem
 
-    <h5> Introduction</h5>
+    ## Introduction
   
 
  An organization XYZ provides several ways for its customers to make payments. While their service counselors can take payments over the phone, it is more cost-efficient for customers to make payments through their self-service channels such as online or through the automated phone system.  The objective is to use a predictive model to select people to receive a pre-emptive e-mail message designed to encourage them to pay online.
@@ -29,14 +29,14 @@ The csv file contains data on customers who have had a bill due in the next 5 da
 
 </ol>
 
-### Challenges with standard Machine learning techniques
+## Challenges with standard Machine learning techniques
 The conventional model evaluation methods do not accurately measure model performance when faced with imbalanced datasets.
 
 Standard classifier algorithms like Decision Tree and Logistic Regression have a bias towards classes which have number of instances. They tend to only predict the majority class data. The features of the minority class are treated as noise and are often ignored. Thus, there is a high probability of misclassification of the minority class as compared to the majority class.
 
 Evaluation of a classification algorithm performance is measured by the Confusion Matrix which contains information about the actual and the predicted class. However, while working in an imbalanced domain accuracy is not an appropriate measure to evaluate model performance. For example,a classifier which achieves an accuracy of 96 % with an event rate of 4 % is not accurate, if it classifies all instances as the majority class. And eliminates the 4 % minority class observations as noise.
 
-### Examples of imbalanced data
+## Examples of imbalanced data
 Apart from fraudulent transactions, other examples of a common business problem with imbalanced dataset are:
 
 - Datasets to identify customer churn where a vast majority of customers will continue using the service. Specifically, Telecommunication companies where Churn Rate is lower than 2 %.
