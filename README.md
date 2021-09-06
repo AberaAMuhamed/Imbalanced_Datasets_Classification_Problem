@@ -1,6 +1,6 @@
 # Imbalanced_Datasets_Classification_Problem
 
-    ## Introduction
+## Introduction
   
 
  An organization XYZ provides several ways for its customers to make payments. While their service counselors can take payments over the phone, it is more cost-efficient for customers to make payments through their self-service channels such as online or through the automated phone system.  The objective is to use a predictive model to select people to receive a pre-emptive e-mail message designed to encourage them to pay online.
