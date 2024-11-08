@@ -1,44 +1,40 @@
-# Anomaly detection in customer behavior
+## Predicting Service Payment Calls: Addressing Imbalanced Data for Improved Model Performance  
 
-## Introduction
-  
+This project tackles the challenge of predicting customers likely to make a service payment call within the next 5 days for XYZ organization. This information will be used to trigger proactive emails, encouraging customers towards online payment options and increasing efficiency.
 
- An organization XYZ provides several ways for its customers to make payments. While their service counselors can take payments over the phone, it is more cost-efficient for customers to make payments through their self-service channels such as online or through the automated phone system.  The objective is to use a predictive model to select people to receive a pre-emptive e-mail message designed to encourage them to pay online.
+**Challenges of Imbalanced Data**
 
- The task is to build a machine learning model that predicts customers who are likely to make a service payment call in the next 5 days.
+The dataset likely exhibits imbalanced class distribution, where the number of customers making calls is significantly lower than those who don't. This imbalance can significantly impact traditional machine learning algorithms. These algorithms prioritize minimizing overall error, leading them to favor the majority class and potentially misclassify the minority class (callers) entirely.
 
+**Addressing Imbalance**
 
+This project explores various techniques to address the imbalanced data challenge and improve model performance:
 
+**1. Data-Level Techniques:**
 
-<p>  If you have spent some time in machine learning and data science, you would have definitely come across imbalanced class distribution. This is a scenario where the number of observations belonging to one class is significantly lower than those belonging to the other classes. </p>
-     
-        
-<p> This problem is predominant in scenarios where anomaly detection is crucial like electricity pilferage, fraudulent transactions in banks, identification of rare diseases, etc. In this situation, the predictive model developed using conventional machine learning algorithms could be biased and inaccurate.    </p>
-     
-        
-<p>
-This happens because Machine Learning Algorithms are usually designed to improve accuracy by reducing the error. Thus, they do not take into account the class distribution / proportion or balance of classes. Machine Learning algorithms tend to produce unsatisfactory classifiers when faced with imbalanced datasets. For any imbalanced data set, if the event to be predicted belongs to the minority class and the event rate is less than 5%, it is usually referred to as a rare event.</p>
-     
-        
+* **Oversampling:** Increase the representation of the minority class by:
+    * **Random Oversampling:** Duplicating existing minority class instances. 
+    * **SMOTE (Synthetic Minority Over-sampling Technique)::** Creating synthetic data points for the minority class.
+* **Undersampling:** Reduce the representation of the majority class to achieve a more balanced distribution.
 
-   
- <h5> Dataset Description: </h5>
-The csv file contains data on customers who have had a bill due in the next 5 days and whether they made a service payment call. 
+**2. Algorithm-Level Techniques:**
 
-<p> This notebook describes various approaches for solving such class imbalance problems using various sampling techniques. We also weigh each technique for its pros and cons. Finally, I reveal an approach using which you can create a balanced class distribution and apply ensemble learning technique designed especially for this purpose.</p>
+* **Class Weighting:** Assigning higher weights to the minority class during training, forcing the model to pay greater attention to these instances.
+* **Cost-Sensitive Learning:** Imposing a higher penalty for misclassifying minority class instances, encouraging the model to prioritize accurate predictions for them.
 
-</ol>
+**3. Ensemble Methods:**
 
-## Challenges with standard Machine learning techniques
-The conventional model evaluation methods do not accurately measure model performance when faced with imbalanced datasets.
+* **Bagging and Boosting:** Combining multiple models trained on different subsets of the data to improve overall robustness. 
+* **SMOTEBoost:** A specialized technique that combines SMOTE with boosting for enhanced performance on imbalanced datasets.
 
-Standard classifier algorithms like Decision Tree and Logistic Regression have a bias towards classes which have number of instances. They tend to only predict the majority class data. The features of the minority class are treated as noise and are often ignored. Thus, there is a high probability of misclassification of the minority class as compared to the majority class.
+**Evaluation Metrics**
 
-Evaluation of a classification algorithm performance is measured by the Confusion Matrix which contains information about the actual and the predicted class. However, while working in an imbalanced domain accuracy is not an appropriate measure to evaluate model performance. For example,a classifier which achieves an accuracy of 96 % with an event rate of 4 % is not accurate, if it classifies all instances as the majority class. And eliminates the 4 % minority class observations as noise.
+Traditional accuracy metrics are not suitable for imbalanced datasets. This project will utilize more appropriate metrics like:
 
-## Examples of imbalanced data
-Apart from fraudulent transactions, other examples of a common business problem with imbalanced dataset are:
+* **Precision:** Measures the proportion of positive predictions that are actually correct (callers identified correctly).
+* **Recall:** Measures the proportion of actual call-making customers that are correctly predicted.
+* **F1-Score:** Combines precision and recall into a single metric.
+* **ROC Curve:** Visualizes the trade-off between accurately identifying true callers and incorrectly identifying non-callers.
+* **AUC-ROC:** Area Under the ROC Curve, quantifies the model's overall ability to distinguish callers from non-callers.
 
-- Datasets to identify customer churn where a vast majority of customers will continue using the service. Specifically, Telecommunication companies where Churn Rate is lower than 2 %.
-- Data sets to identify rare diseases in medical diagnostics etc.
-- Natural Disaster like Earthquakes
+By carefully selecting and applying these techniques, this project aims to develop a robust and accurate machine learning model for predicting service payment calls, ultimately improving the efficiency of XYZ's payment process.
