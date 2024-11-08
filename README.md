@@ -1,4 +1,4 @@
-# Imbalanced_Datasets_Classification_Problem
+# Anomaly detection in customer behavior
 
 ## Introduction
   
